@@ -20,6 +20,6 @@ O sistema possui rotas para *criar*, *editar*, *retornar* e *deletar* os objetos
 ### 🧑‍💻 Equipe
 Arthur Osaka Hoshino: [LinkedIn](https://linkedin.com/in/arthurhoshino) [GitHub](https://github.com/ArthurHoshino)<br>
 Fernando Manso Isaac: [LinkedIn](https://br.linkedin.com/in/fernando-manso-242290320) [GitHub](https://github.com/Fernando-MI)<br>
-Bruno Koji Nakao<br>
-[João Henrique Guimarães da Silva]()<br>
-[Guilherme Silva Piantamar]()<br>
+Bruno Koji Nakao: [GitHub](https://github.com/Bruno-235789)<br>
+João Henrique Guimarães da Silva<br>
+Guilherme Silva Piantamar<br>
