@@ -18,7 +18,7 @@ node .
 O sistema possui rotas para *criar*, *editar*, *retornar* e *deletar* os objetos do sistema.
 
 ### 🧑‍💻 Equipe
-[Arthur Osaka Hoshino]('https://linkedin.com/in/arthurhoshino')<br>
+[Arthur Osaka Hoshino](https://linkedin.com/in/arthurhoshino)<br>
 Fernando Manso Isaac<br>
 Bruno Koji Nakao<br>
 [João Henrique Guimarães da Silva]()<br>
