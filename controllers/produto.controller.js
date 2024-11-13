@@ -1,10 +1,8 @@
-const Pedido = require('../models/pedido.model.js')
-const Cliente = require('../models/cliente.model.js')
+const Produto = require('../models/produto.model.js')
 
 exports.listar = async function(req, res) {
     try {
-        const result = await Pedido.find({})
-
+        const result = await Produto.find({})
         res.status(200).send(result)
     } catch (error) {
         res.status(500).send(error)
@@ -13,7 +11,7 @@ exports.listar = async function(req, res) {
 
 exports.listarPorId = async function(req, res) {
     try {
-        const result = await Pedido.findOne({_id: req.params.id})
+        const result = await Produto.findOne({_id: req.params.id})
 
         if (result.length != 0) {
             res.status(200).send(result)
@@ -25,18 +23,12 @@ exports.listarPorId = async function(req, res) {
     }
 }
 
-exports.create = async function(req, res) {
+exports.create = async function (req, res) {
     try {
-        const result = await Cliente.findOne({_id: req.body.cliente})
-
-        if (result) {
-            let newPedido = await Pedido.create(req.body)
-            await newPedido.save()
+        let newProduto = await Produto.create(req.body)
+        await newProduto.save()
     
-            res.status(201).send(newPedido)
-        } else {
-            throw new Error
-        }
+        res.status(201).send(newProduto)
     } catch (error) {
         res.status(500).send(error)
     }
@@ -47,8 +39,8 @@ exports.update = async function(req, res) {
         const filter = {_id: req.params.id}
         const updatedInfo = req.body
 
-        await Pedido.findOneAndUpdate(filter, updatedInfo)
-        const result = await Pedido.findOne(filter)
+        await Produto.findOneAndUpdate(filter, updatedInfo)
+        const result = await Produto.findOne(filter)
 
         res.status(200).send(result)
     } catch (error) {
@@ -56,12 +48,13 @@ exports.update = async function(req, res) {
     }
 }
 
-exports.delete = async function(req, res) {
+exports.delete = async function (req, res) {
     try {
-        const result = await Pedido.findOneAndDelete({_id: req.body.id})
+        const result = await Produto.findOneAndDelete({_id: req.body.id})
 
         res.status(200).send(result)
     } catch (error) {
+        console.log(error)
         res.status(500).send(error)
     }
 }

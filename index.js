@@ -1,8 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const pizza = require('./routes/pizza.route.js')
-const pessoa = require('./routes/pessoa.route.js')
+const produto = require('./routes/produto.route.js')
+const cliente = require('./routes/cliente.route.js')
 const pedido = require('./routes/pedido.route.js')
+const itensPedido = require('./routes/itensPedido.route.js')
 const mongoose = require("mongoose")
 
 const app = express()
@@ -18,9 +19,10 @@ db.on('erro', console.error.bind(console, "Erro mongo"))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
-app.use("/pizza", pizza)
-app.use("/pessoa", pessoa)
+app.use("/produto", produto)
+app.use("/cliente", cliente)
 app.use("/pedido", pedido)
+app.use("/itensPedido", itensPedido)
 
 let port = 3000
 app.listen(port, () => {

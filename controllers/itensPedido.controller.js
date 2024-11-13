@@ -1,9 +1,8 @@
-const Pedido = require('../models/pedido.model.js')
-const Cliente = require('../models/cliente.model.js')
+const ItensPedido = require('../models/itensPedido.model.js')
 
 exports.listar = async function(req, res) {
     try {
-        const result = await Pedido.find({})
+        const result = await ItensPedido.find({})
 
         res.status(200).send(result)
     } catch (error) {
@@ -13,7 +12,7 @@ exports.listar = async function(req, res) {
 
 exports.listarPorId = async function(req, res) {
     try {
-        const result = await Pedido.findOne({_id: req.params.id})
+        const result = await ItensPedido.find({pedido: req.params.pedidoId})
 
         if (result.length != 0) {
             res.status(200).send(result)
@@ -27,16 +26,17 @@ exports.listarPorId = async function(req, res) {
 
 exports.create = async function(req, res) {
     try {
-        const result = await Cliente.findOne({_id: req.body.cliente})
+        let result = []
+        const itens = req.body
 
-        if (result) {
-            let newPedido = await Pedido.create(req.body)
-            await newPedido.save()
-    
-            res.status(201).send(newPedido)
-        } else {
-            throw new Error
+        for (let i = 0; i < itens.length; i++) {
+            let newItensPedido = await ItensPedido.create(itens[i])
+            await newItensPedido.save()
+
+            result.push(newItensPedido)
         }
+
+        res.status(201).send(result)
     } catch (error) {
         res.status(500).send(error)
     }
@@ -44,11 +44,11 @@ exports.create = async function(req, res) {
 
 exports.update = async function(req, res) {
     try {
-        const filter = {_id: req.params.id}
+        const filter = {produtoId: req.params.produtoId, pedido: req.params.pedidoId}
         const updatedInfo = req.body
 
-        await Pedido.findOneAndUpdate(filter, updatedInfo)
-        const result = await Pedido.findOne(filter)
+        await ItensPedido.findOneAndUpdate(filter, updatedInfo)
+        const result = await ItensPedido.findOne(filter)
 
         res.status(200).send(result)
     } catch (error) {
@@ -58,7 +58,8 @@ exports.update = async function(req, res) {
 
 exports.delete = async function(req, res) {
     try {
-        const result = await Pedido.findOneAndDelete({_id: req.body.id})
+        const filter = {produtoId: req.body.produtoId, pedido: req.body.pedidoId}
+        const result = await ItensPedido.findOneAndDelete(filter)
 
         res.status(200).send(result)
     } catch (error) {

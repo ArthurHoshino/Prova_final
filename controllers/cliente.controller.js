@@ -1,9 +1,8 @@
-const Pedido = require('../models/pedido.model.js')
 const Cliente = require('../models/cliente.model.js')
 
 exports.listar = async function(req, res) {
     try {
-        const result = await Pedido.find({})
+        const result = await Cliente.find({})
 
         res.status(200).send(result)
     } catch (error) {
@@ -13,7 +12,7 @@ exports.listar = async function(req, res) {
 
 exports.listarPorId = async function(req, res) {
     try {
-        const result = await Pedido.findOne({_id: req.params.id})
+        const result = await Cliente.find({_id: req.params.id})
 
         if (result.length != 0) {
             res.status(200).send(result)
@@ -27,16 +26,10 @@ exports.listarPorId = async function(req, res) {
 
 exports.create = async function(req, res) {
     try {
-        const result = await Cliente.findOne({_id: req.body.cliente})
+        let newCliente = await Cliente.create(req.body)
+        await newCliente.save()
 
-        if (result) {
-            let newPedido = await Pedido.create(req.body)
-            await newPedido.save()
-    
-            res.status(201).send(newPedido)
-        } else {
-            throw new Error
-        }
+        res.status(200).send(newCliente)
     } catch (error) {
         res.status(500).send(error)
     }
@@ -47,8 +40,8 @@ exports.update = async function(req, res) {
         const filter = {_id: req.params.id}
         const updatedInfo = req.body
 
-        await Pedido.findOneAndUpdate(filter, updatedInfo)
-        const result = await Pedido.findOne(filter)
+        await Cliente.findOneAndUpdate(filter, updatedInfo)
+        const result = await Cliente.findOne(filter)
 
         res.status(200).send(result)
     } catch (error) {
@@ -58,7 +51,7 @@ exports.update = async function(req, res) {
 
 exports.delete = async function(req, res) {
     try {
-        const result = await Pedido.findOneAndDelete({_id: req.body.id})
+        const result = await Cliente.findOneAndDelete({_id: req.body.id})
 
         res.status(200).send(result)
     } catch (error) {

@@ -1,14 +1,17 @@
-const mongoose = require("mongoose")
+const mongoose = require('mongoose')
 
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 
-let PedidoSchema = new Schema({
-    item: {type: String, require: true, max: 150},
-    endereco: {type: String, max: 15},
-    numeroPedido: {type: Number, max: 300},
-    quantidade: {type: Number, max: 30},
-    data: {type: Date}
+const PedidoSchema = new Schema({
+    cliente: {
+        type: Schema.Types.ObjectId,
+        ref: "Clientes",
+        required: true
+    },
+    itensPedido: {
+        type: Schema.Types.ObjectId,
+        ref: "ItensPedido"
+    }
 })
 
-// exportar o modelo para uso no app
-module.exports = mongoose.model("pedidos", PedidoSchema)
+module.exports = mongoose.model("Pedidos", PedidoSchema)
