@@ -22,4 +22,4 @@ Arthur Osaka Hoshino: [LinkedIn](https://linkedin.com/in/arthurhoshino) [GitHub]
 Fernando Manso Isaac: [LinkedIn](https://br.linkedin.com/in/fernando-manso-242290320) [GitHub](https://github.com/Fernando-MI)<br>
 Bruno Koji Nakao: [GitHub](https://github.com/Bruno-235789)<br>
 João Henrique Guimarães da Silva<br>
-Guilherme Silva Piantamar<br>
+Guilherme Silva Piantamar: [LinkedIn](https://www.linkedin.com/in/guilherme-silva-piantamar-84ab9a232) [GitHub](https://github.com/gpiantamar)<br>
