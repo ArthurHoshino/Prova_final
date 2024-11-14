@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 let ProdutoSchema = new Schema({
     item: {type: String, required: true, max: 150},
     categoria: {type: String, required: true, max: 15},
-    preco: {type: String, required: true, max: 300},
+    preco: {type: Number, required: true, max: 300},
     itensPedido: {type: Schema.Types.ObjectId, ref: "ItensPedidos"}
 })
 

@@ -12,7 +12,7 @@ exports.listar = async function(req, res) {
 
 exports.listarPorId = async function(req, res) {
     try {
-        const result = await Cliente.find({_id: req.params.id})
+        const result = await Cliente.findOne({_id: req.params.id})
 
         if (result.length != 0) {
             res.status(200).send(result)

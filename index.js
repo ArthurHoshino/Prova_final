@@ -2,8 +2,8 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const produto = require('./routes/produto.route.js')
 const cliente = require('./routes/cliente.route.js')
-const pedido = require('./routes/pedido.route.js')
-const itensPedido = require('./routes/itensPedido.route.js')
+const venda = require('./routes/venda.route.js')
+const itensVenda = require('./routes/itensVenda.route.js')
 const mongoose = require("mongoose")
 
 const app = express()
@@ -21,8 +21,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.use("/produto", produto)
 app.use("/cliente", cliente)
-app.use("/pedido", pedido)
-app.use("/itensPedido", itensPedido)
+app.use("/venda", venda)
+app.use("/itensVenda", itensVenda)
 
 let port = 3000
 app.listen(port, () => {

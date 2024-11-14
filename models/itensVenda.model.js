@@ -2,18 +2,18 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
-const ItensPedidoSchema = new Schema({
+const ItensVendaSchema = new Schema({
     quantidade: {type: Number, required: true},
     produto: {
         type: Schema.Types.ObjectId,
         ref: "Produtos",
         required: true
     },
-    pedido: {
+    venda: {
         type: Schema.Types.ObjectId,
-        ref: "Pedidos",
+        ref: "Vendas",
         required: true
     },
 })
 
-module.exports = mongoose.model("ItensPedidos", ItensPedidoSchema)
+module.exports = mongoose.model("ItensVenda", ItensVendaSchema)

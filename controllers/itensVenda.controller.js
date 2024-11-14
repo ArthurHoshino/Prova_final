@@ -1,8 +1,8 @@
-const ItensPedido = require('../models/itensPedido.model.js')
+const ItensVenda = require('../models/itensVenda.model.js')
 
 exports.listar = async function(req, res) {
     try {
-        const result = await ItensPedido.find({})
+        const result = await ItensVenda.find({})
 
         res.status(200).send(result)
     } catch (error) {
@@ -12,7 +12,7 @@ exports.listar = async function(req, res) {
 
 exports.listarPorId = async function(req, res) {
     try {
-        const result = await ItensPedido.find({pedido: req.params.pedidoId})
+        const result = await ItensVenda.find({venda: req.params.vendaId})
 
         if (result.length != 0) {
             res.status(200).send(result)
@@ -30,10 +30,10 @@ exports.create = async function(req, res) {
         const itens = req.body
 
         for (let i = 0; i < itens.length; i++) {
-            let newItensPedido = await ItensPedido.create(itens[i])
-            await newItensPedido.save()
+            let newItensVenda = await ItensVenda.create(itens[i])
+            await newItensVenda.save()
 
-            result.push(newItensPedido)
+            result.push(newItensVenda)
         }
 
         res.status(201).send(result)
@@ -44,11 +44,11 @@ exports.create = async function(req, res) {
 
 exports.update = async function(req, res) {
     try {
-        const filter = {produtoId: req.params.produtoId, pedido: req.params.pedidoId}
+        const filter = {produtoId: req.params.produtoId, venda: req.params.vendaId}
         const updatedInfo = req.body
 
-        await ItensPedido.findOneAndUpdate(filter, updatedInfo)
-        const result = await ItensPedido.findOne(filter)
+        await ItensVenda.findOneAndUpdate(filter, updatedInfo)
+        const result = await ItensVenda.findOne(filter)
 
         res.status(200).send(result)
     } catch (error) {
@@ -58,8 +58,8 @@ exports.update = async function(req, res) {
 
 exports.delete = async function(req, res) {
     try {
-        const filter = {produtoId: req.body.produtoId, pedido: req.body.pedidoId}
-        const result = await ItensPedido.findOneAndDelete(filter)
+        const filter = {produtoId: req.body.produtoId, venda: req.body.vendaId}
+        const result = await ItensVenda.findOneAndDelete(filter)
 
         res.status(200).send(result)
     } catch (error) {

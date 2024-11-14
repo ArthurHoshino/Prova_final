@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
-const PedidoSchema = new Schema({
+const VendaSchema = new Schema({
     cliente: {
         type: Schema.Types.ObjectId,
         ref: "Clientes",
@@ -10,8 +10,8 @@ const PedidoSchema = new Schema({
     },
     itensPedido: {
         type: Schema.Types.ObjectId,
-        ref: "ItensPedido"
+        ref: "ItensVenda"
     }
 })
 
-module.exports = mongoose.model("Pedidos", PedidoSchema)
+module.exports = mongoose.model("Vendas", VendaSchema)
