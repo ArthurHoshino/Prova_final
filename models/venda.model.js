@@ -8,7 +8,7 @@ const VendaSchema = new Schema({
         ref: "Clientes",
         required: true
     },
-    itensPedido: {
+    itensVenda: {
         type: Schema.Types.ObjectId,
         ref: "ItensVenda"
     }

@@ -1,6 +1,6 @@
 # Prova Final Back-End
 
-## Sistema back-end para registros de clientes, produtos e pedidos utilizando Node.JS e MongoDB
+## Sistema back-end para registros de clientes, produtos e vendas utilizando Node.JS e MongoDB
 
 ### 💻 Executando o projeto
 Considerando que você já possa como criar um banco de dados em Mongo local, vamos instalar as dependências necessárias utilizando o comando:<br>

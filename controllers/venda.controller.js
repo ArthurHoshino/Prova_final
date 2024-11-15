@@ -30,10 +30,10 @@ exports.create = async function(req, res) {
         const result = await Cliente.findOne({_id: req.body.cliente})
 
         if (result) {
-            let newPedido = await Venda.create(req.body)
-            await newPedido.save()
+            let newVenda = await Venda.create(req.body)
+            await newVenda.save()
     
-            res.status(201).send(newPedido)
+            res.status(201).send(newVenda)
         } else {
             throw new Error
         }
