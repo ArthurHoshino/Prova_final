@@ -8,7 +8,7 @@ router.get('/listarVenda', venda_controller.listar)
 
 router.get('/listarVenda/:id', venda_controller.listarPorId)
 
-router.put('/editarVenda/:id/:produtoId', venda_controller.update)
+router.put('/editarVenda/:id', venda_controller.update)
 
 router.delete('/deletarVenda', venda_controller.delete)
 
