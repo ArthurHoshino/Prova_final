@@ -44,7 +44,7 @@ exports.create = async function(req, res) {
 
 exports.update = async function(req, res) {
     try {
-        const filter = {produtoId: req.params.produtoId, venda: req.params.vendaId}
+        const filter = {produto: req.params.produtoId, venda: req.params.vendaId}
         const updatedInfo = req.body
 
         await ItensVenda.findOneAndUpdate(filter, updatedInfo)
@@ -58,7 +58,7 @@ exports.update = async function(req, res) {
 
 exports.delete = async function(req, res) {
     try {
-        const filter = {produtoId: req.body.produtoId, venda: req.body.vendaId}
+        const filter = {produto: req.body.produtoId, venda: req.body.vendaId}
         const result = await ItensVenda.findOneAndDelete(filter)
 
         res.status(200).send(result)
